@@ -505,7 +505,8 @@ class FeatureUnion(BaseEstimator, TransformerMixin):
                 Xs = sparse.hstack(Xs).tocsr()
             else:
                 Xs = np.hstack(Xs)
-        ## IF PANDAS DATAFRAMES
+
+        ## IF PANDAS STACK DF COLUMN-WISE
         elif all(isinstance(f, pd.DataFrame) for f in Xs):
             Xs = pd.concat(Xs, axis=1)
         else:
@@ -535,7 +536,8 @@ class FeatureUnion(BaseEstimator, TransformerMixin):
                 Xs = sparse.hstack(Xs).tocsr()
             else:
                 Xs = np.hstack(Xs)
-        ## IF PANDAS
+
+        ## IF PANDAS STACK DF COLUMN-WISE
         elif all(isinstance(f, pd.DataFrame) for f in Xs):
             Xs = pd.concat(Xs, axis=1)
         else:
