@@ -511,12 +511,6 @@ class FeatureUnion(BaseEstimator, TransformerMixin):
         else:
             raise TypeError('FeatureUnion requires either all numpy.ndarray or all pandas.DataFrame')
         return Xs
-        
-        #if any(sparse.issparse(f) for f in Xs):
-        #    Xs = sparse.hstack(Xs).tocsr()
-        #else:
-        #    Xs = np.hstack(Xs)
-        #return Xs
 
     def transform(self, X):
         """Transform X separately by each transformer, concatenate results.
@@ -547,12 +541,6 @@ class FeatureUnion(BaseEstimator, TransformerMixin):
         else:
             raise TypeError('FeatureUnion requires either all numpy.ndarray or all pandas.DataFrame')
         return Xs
-    
-#        if any(sparse.issparse(f) for f in Xs):
-#            Xs = sparse.hstack(Xs).tocsr()
-#        else:
-#            Xs = np.hstack(Xs)
-#        return Xs
 
     def get_params(self, deep=True):
         if not deep:
